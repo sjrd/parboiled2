@@ -16,8 +16,6 @@
 
 package org.parboiled2
 
-import java.nio.charset.Charset
-
 sealed abstract class ParserInput {
   def charAt(ix: Int): Char
   def length: Int
@@ -36,15 +34,11 @@ sealed abstract class ParserInput {
 // Note: make sure to not add another implementation, otherwise usage of this class
 // might turn megamorphic at the call-sites thereby effectively disabling method inlining!
 object ParserInput {
-  val UTF8 = Charset.forName("UTF-8")
-
-  implicit def apply(bytes: Array[Byte]): ParserInput = apply(bytes, UTF8)
-
-  def apply(bytes: Array[Byte], charset: Charset): ParserInput =
+  def apply(bytes: Array[Byte]): ParserInput =
     new ParserInput {
       def charAt(ix: Int) = bytes(ix).toChar
       def length = bytes.length
-      def sliceString(start: Int, end: Int) = new String(bytes, start, end - start, charset)
+      def sliceString(start: Int, end: Int) = ??? //new String(bytes, start, end - start, charset)
     }
 
   implicit def apply(string: String): ParserInput =

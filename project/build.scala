@@ -2,6 +2,8 @@ import sbt._
 import Keys._
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import scala.scalajs.sbtplugin.ScalaJSPlugin._
+import ScalaJSKeys._
 
 object build extends Build {
   lazy val formatSettings = SbtScalariform.scalariformSettings ++ Seq(
@@ -19,7 +21,7 @@ object build extends Build {
 
   lazy val sharedSettings = Seq(
     scalaVersion := "2.10.3"
-  ) ++ formatSettings
+  ) ++ formatSettings ++ scalaJSSettings
 
   // configure prompt to show current project
   override lazy val settings = super.settings :+ {
