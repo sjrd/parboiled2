@@ -22,12 +22,12 @@ scalacOptions ++= Seq(
   "-unchecked",
   "-deprecation",
   "-Xlint",
-  "-language:_", 
+  "-language:_",
   "-encoding", "UTF-8"
 )
 
 libraryDependencies ++= Seq(
-  "org.scala-lang"  %  "scala-reflect"  % "2.10.3"  % "compile",
-  "com.chuusai"     %% "shapeless"      % "1.2.4"   % "compile",
-  "org.specs2"      %% "specs2"         % "1.14"    % "test"
+  "org.scala-lang"  %  "scala-reflect"  % "2.10.3"   % "compile",
+  "com.chuusai"     %% "shapeless_sjs0.5.0-SNAPSHOT" % "1.2.4-JS" % "compile",
+  "org.specs2"      %% "specs2"         % "1.14"     % "test"
 )
