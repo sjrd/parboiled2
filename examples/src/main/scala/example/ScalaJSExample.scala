@@ -17,10 +17,7 @@ object ScalaJSExample {
   @JSExport
   def main(): Unit = {
     val abcParser = new ABCParser("ab")
-    val res = abcParser.run(_.InputLine) match {
-      case Right(_)  ⇒ "matched"
-      case Left(err) ⇒ "failed-to-match"
-    }
+    val res = abcParser.runStub(_.InputLine)
 
     val paragraph = g.document.createElement("p")
     paragraph.innerHTML = s"<strong>It works! ${res}</strong>"

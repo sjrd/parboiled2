@@ -46,6 +46,8 @@ abstract class Parser extends RuleDSL {
 
   def rule[I <: HList, O <: HList](r: Rule[I, O]): Rule[I, O] = macro ruleImpl[I, O]
 
+  def runStub[L <: HList](rule: this.type ⇒ RuleN[L]): Either[ParseError, Int] = Right(42)
+
   def run[L <: HList](rule: this.type ⇒ RuleN[L]): Result[L] = {
     def runRule(errorRuleStackIx: Int = -1): Boolean = {
       cursor = -1
