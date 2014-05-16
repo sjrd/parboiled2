@@ -48,5 +48,5 @@ object ParserInput {
       def sliceString(start: Int, end: Int) = string.substring(start, end)
     }
 
-  implicit def apply(chars: Array[Char]): ParserInput = apply(new String(chars))
+  //implicit def apply(chars: Array[Char]): ParserInput = apply(new String(chars))
 }
